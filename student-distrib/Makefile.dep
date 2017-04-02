@@ -1,0 +1,28 @@
+boot.o: boot.S multiboot.h x86_desc.h types.h
+interrupt_wrapper.o: interrupt_wrapper.S interrupt_wrapper.h
+syscall_handler.o: syscall_handler.S
+trap_wrapper.o: trap_wrapper.S trap_wrapper.h
+x86_desc.o: x86_desc.S x86_desc.h types.h
+filesys.o: filesys.c filesys.h types.h lib.h keyboard.h paging.h \
+  syscall.h x86_desc.h rtc.h kmalloc.h
+i8259.o: i8259.c i8259.h types.h lib.h
+IDT.o: IDT.c x86_desc.h types.h IDT.h lib.h trap.h keyboard.h paging.h \
+  syscall.h filesys.h rtc.h kmalloc.h interrupt_wrapper.h trap_wrapper.h \
+  syscall_handler.h mouse.h
+kernel.o: kernel.c multiboot.h types.h x86_desc.h lib.h i8259.h debug.h \
+  IDT.h paging.h rtc.h filesys.h keyboard.h syscall.h kmalloc.h pit.h \
+  mouse.h
+keyboard.o: keyboard.c keyboard.h lib.h types.h paging.h syscall.h \
+  filesys.h x86_desc.h rtc.h kmalloc.h i8259.h
+kmalloc.o: kmalloc.c kmalloc.h types.h lib.h
+lib.o: lib.c lib.h types.h syscall.h filesys.h paging.h x86_desc.h \
+  keyboard.h rtc.h kmalloc.h magic.h i8259.h
+mouse.o: mouse.c mouse.h types.h lib.h i8259.h
+paging.o: paging.c paging.h types.h lib.h magic.h kmalloc.h
+pit.o: pit.c pit.h types.h rtc.h lib.h i8259.h syscall.h filesys.h \
+  paging.h x86_desc.h keyboard.h kmalloc.h
+rtc.o: rtc.c rtc.h types.h lib.h i8259.h syscall.h filesys.h paging.h \
+  x86_desc.h keyboard.h kmalloc.h magic.h
+syscall.o: syscall.c syscall.h lib.h types.h filesys.h paging.h \
+  x86_desc.h keyboard.h rtc.h kmalloc.h
+trap.o: trap.c trap.h lib.h types.h
