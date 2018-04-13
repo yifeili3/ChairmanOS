@@ -1,2 +1,2 @@
 # ChairmanOS
-A Barebone Linux Operating system project created by Yifei Li, Zeyuan Yu, Kangyan Zhou, Shengze Wang.
+An Unix Operating system project.
